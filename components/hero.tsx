@@ -5,7 +5,7 @@ import { SiGithub } from "react-icons/si";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 
-const CURL_COMMAND = "curl -s https://api.hasibsafi.dev/profile";
+const CURL_COMMAND = "curl -s https://api.hasibsafi.com/profile";
 const TYPING_SPEED = 30;
 const NETWORK_PAUSE = 500;
 const DEVELOPER_NAME = "Hasib Safi";
