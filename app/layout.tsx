@@ -25,20 +25,8 @@ export const metadata: Metadata = {
       { url: '/favicon48X48.png', sizes: '48x48' },
       { url: '/favicon96X96.png', sizes: '96x96' },
       { url: '/favicon128X128.png', sizes: '128x128' },
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
     ],
-    apple: '/apple-icon.png',
+    apple: '/favicon128X128.png',
   },
 }
 

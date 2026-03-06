@@ -2,7 +2,7 @@
 # Deploy script - run on VPS from project directory
 set -e
 
-cd /var/www/Portfolio/Personal-Potfolio
+cd /var/www/portfolio
 
 if [ -d .git ]; then
   echo ">>> Pulling latest changes..."

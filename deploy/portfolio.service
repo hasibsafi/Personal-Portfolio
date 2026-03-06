@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=hasib
-WorkingDirectory=/var/www/Portfolio/Personal-Potfolio
+WorkingDirectory=/var/www/portfolio
 ExecStart=/usr/bin/npm run start
 Restart=always
 RestartSec=5
