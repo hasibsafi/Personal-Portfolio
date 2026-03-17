@@ -43,12 +43,17 @@ export function MouseGlow() {
         background: `
           radial-gradient(
             600px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-            oklch(0.75 0.18 195 / 0.12),
+            rgb(34 211 238 / 0.14),
             transparent 40%
           ),
           radial-gradient(
             800px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-            oklch(0.65 0.15 280 / 0.08),
+            rgb(56 189 248 / 0.1),
+            transparent 52%
+          ),
+          radial-gradient(
+            920px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+            rgb(99 102 241 / 0.08),
             transparent 50%
           )
         `,

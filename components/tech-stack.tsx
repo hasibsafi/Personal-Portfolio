@@ -19,6 +19,7 @@ import {
   SiGit,
 } from "react-icons/si"
 import { Database, ShieldCheck } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 interface Tech {
   name: string
@@ -67,12 +68,12 @@ const categories: Category[] = [
 
 export function TechStack() {
   return (
-    <section id="stack" className="relative px-6 py-14">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon/3 blur-[150px]" />
+    <section id="stack" className="relative px-6 py-16 md:py-20">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-infra-cyan/12 blur-[150px]" />
 
-      <div className="relative mx-auto max-w-6xl rounded-2xl border border-glass-border/60 bg-glass/70 p-8 sm:p-10 backdrop-blur-sm">
-        <div className="mb-12 text-center">
-          <span className="mb-2 block font-mono text-xs uppercase tracking-widest text-neon">
+      <div className="glass-panel relative mx-auto max-w-6xl rounded-2xl p-7 sm:p-10">
+        <ScrollReveal className="mb-12 text-center">
+          <span className="mb-2 block font-mono text-xs uppercase tracking-widest text-cloud-cyan">
             Skills
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -82,31 +83,33 @@ export function TechStack() {
             Technologies and systems I rely on to deliver production-ready
             software.
           </p>
-        </div>
+        </ScrollReveal>
 
-        {categories.map((category) => (
-          <div key={category.label} className="mt-10 first:mt-0">
-            <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-neon">
-              {category.label}
-            </h3>
-            <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
-              {category.items.map((item) => {
-                const Icon = item.icon
-                return (
-                  <div
-                    key={item.name}
-                    className="group flex flex-col items-center justify-center rounded-xl border border-glass-border bg-glass p-4 backdrop-blur-sm transition-colors hover:border-neon/30"
-                  >
-                    <Icon size={28} className="text-neon" />
-                    <span className="mt-2 text-center text-xs text-muted-foreground">
-                      {item.name}
-                    </span>
-                  </div>
-                )
-              })}
+        <ScrollReveal delay={0.15}>
+          {categories.map((category) => (
+            <div key={category.label} className="mt-10 first:mt-0">
+              <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-cloud-cyan">
+                {category.label}
+              </h3>
+              <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+                {category.items.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <div
+                      key={item.name}
+                      className="group flex flex-col items-center justify-center rounded-xl border border-cloud-cyan/40 bg-white/6 p-4 backdrop-blur-2xl transition-all duration-300 hover:border-cloud-cyan/60 hover:shadow-[0_0_24px_rgba(34,211,238,0.15)]"
+                    >
+                      <Icon size={28} className="text-cloud-cyan transition-transform duration-300 group-hover:scale-110" />
+                      <span className="mt-2 text-center text-xs text-muted-foreground">
+                        {item.name}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </ScrollReveal>
       </div>
     </section>
   )

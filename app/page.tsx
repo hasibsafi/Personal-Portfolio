@@ -1,25 +1,33 @@
 import { Navbar } from "@/components/navbar"
-import { Hero } from "@/components/hero"
+import { HeroScene } from "@/components/hero-scene"
 import { Projects } from "@/components/projects"
 import { TechStack } from "@/components/tech-stack"
 import { Experience } from "@/components/experience"
 import { Education } from "@/components/education"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
-import { MouseGlow } from "@/components/mouse-glow"
+import { DevOpsBackground } from "@/components/devops-background"
+import { PipelineConnector } from "@/components/pipeline-connector"
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <MouseGlow />
-      <Navbar />
-      <Hero />
-      <Education />
-      <TechStack />
-      <Experience />
-      <Projects />
-      <Contact />
-      <Footer />
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#020617] text-foreground">
+      <DevOpsBackground />
+      <div className="relative z-10">
+        <Navbar />
+        <HeroScene />
+        <PipelineConnector label="Foundation" />
+        <Education />
+        <PipelineConnector label="Compile" />
+        <TechStack />
+        <PipelineConnector label="Build" />
+        <Experience />
+        <PipelineConnector label="Deploy" />
+        <Projects />
+        <PipelineConnector label="Connect" />
+        <Contact />
+        <Footer />
+      </div>
     </main>
   )
 }

@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon48X48.png', sizes: '48x48' },
-      { url: '/favicon96X96.png', sizes: '96x96' },
-      { url: '/favicon128X128.png', sizes: '128x128' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico' },
     ],
-    apple: '/favicon128X128.png',
+    apple: '/apple-touch-icon.png',
   },
 }
 

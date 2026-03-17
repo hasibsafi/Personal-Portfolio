@@ -4,26 +4,26 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.11 0.015 250);
+  --background: oklch(0.14 0.025 258);
   --foreground: oklch(0.95 0.01 250);
   --card: oklch(0.15 0.015 250 / 0.5);
   --card-foreground: oklch(0.95 0.01 250);
   --popover: oklch(0.13 0.015 250);
   --popover-foreground: oklch(0.95 0.01 250);
-  --primary: oklch(0.75 0.18 195);
+  --primary: oklch(0.79 0.13 214);
   --primary-foreground: oklch(0.11 0.015 250);
   --secondary: oklch(0.21 0.015 250);
-  --secondary-foreground: oklch(0.85 0.01 250);
+  --secondary-foreground: oklch(0.9 0.01 250);
   --muted: oklch(0.2 0.01 250);
-  --muted-foreground: oklch(0.7 0.02 250);
+  --muted-foreground: oklch(0.82 0.02 250);
   --accent: oklch(0.75 0.18 195);
   --accent-foreground: oklch(0.11 0.015 250);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.3 0.02 250 / 0.5);
   --input: oklch(0.2 0.015 250);
-  --ring: oklch(0.75 0.18 195);
-  --chart-1: oklch(0.75 0.18 195);
+  --ring: oklch(0.79 0.13 214);
+  --chart-1: oklch(0.79 0.13 214);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
@@ -31,16 +31,21 @@
   --radius: 0.75rem;
   --sidebar: oklch(0.13 0.015 250);
   --sidebar-foreground: oklch(0.95 0.01 250);
-  --sidebar-primary: oklch(0.75 0.18 195);
+  --sidebar-primary: oklch(0.79 0.13 214);
   --sidebar-primary-foreground: oklch(0.11 0.015 250);
   --sidebar-accent: oklch(0.18 0.015 250);
   --sidebar-accent-foreground: oklch(0.85 0.01 250);
   --sidebar-border: oklch(0.25 0.02 250 / 0.5);
-  --sidebar-ring: oklch(0.75 0.18 195);
-  --neon: oklch(0.75 0.18 195);
-  --neon-glow: oklch(0.75 0.18 195 / 0.4);
-  --glass: oklch(0.22 0.03 250 / 0.85);
-  --glass-border: oklch(0.5 0.04 250 / 0.55);
+  --sidebar-ring: oklch(0.79 0.13 214);
+  --neon: oklch(0.79 0.13 214);
+  --neon-glow: oklch(0.79 0.13 214 / 0.4);
+  --glass: rgb(255 255 255 / 0.08);
+  --glass-border: rgb(255 255 255 / 0.16);
+  --deep-space: #020617;
+  --cloud-cyan: #22d3ee;
+  --infra-cyan: #38bdf8;
+  --subtle-indigo: #6366f1;
+  --pipeline-green: #22c55e;
 }
 
 @theme inline {
@@ -87,6 +92,10 @@
   --color-neon-glow: var(--neon-glow);
   --color-glass: var(--glass);
   --color-glass-border: var(--glass-border);
+  --color-cloud-cyan: var(--cloud-cyan);
+  --color-infra-cyan: var(--infra-cyan);
+  --color-subtle-indigo: var(--subtle-indigo);
+  --color-pipeline-green: var(--pipeline-green);
 }
 
 @layer base {
@@ -114,6 +123,94 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-node {
+  0%,
+  100% {
+    opacity: 0.66;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+
+@keyframes grid-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 64px, 0);
+  }
+}
+
+@keyframes pipeline-glow {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+.glass-panel {
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(255 255 255 / 0.15);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 18px 50px rgb(2 6 23 / 0.45);
+  backdrop-filter: blur(24px);
+}
+
+.devops-grid {
+  position: absolute;
+  inset: -40px;
+  background-image:
+    linear-gradient(rgb(148 163 184 / 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 0.16) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black 34%, transparent 94%);
+  animation: grid-scroll 12s linear infinite;
+}
+
+.node-pulse {
+  animation: pulse-node 3.6s ease-in-out infinite;
+}
+
+.soft-float {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+.pipeline-line {
+  background: linear-gradient(
+    90deg,
+    rgb(56 189 248 / 0.12),
+    rgb(34 211 238 / 0.78),
+    rgb(99 102 241 / 0.26)
+  );
+  background-size: 220% 100%;
+  animation: pipeline-glow 4s linear infinite;
 }
 
 .animate-fade-in-up {
